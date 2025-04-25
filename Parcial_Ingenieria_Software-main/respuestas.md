@@ -1,17 +1,25 @@
 # Respuestas
 
 ## 1. Herencia y Polimorfismo
-- El proyecto utiliza **herencia** y **polimorfismo** en la relación entre las clases `Producto` (abstracta) y `ProductoConcreto`.  
-- La clase `Producto` define un contrato común para todos los productos mediante el método abstracto `mostrarDetalles`, que es implementado de manera específica en `ProductoConcreto`.  
-- Además, el uso de la interfaz `ProductoImplementacion` permite aplicar polimorfismo al desacoplar la implementación de los detalles específicos de cada producto.
+
+- **Herencia**:
+
+- La clase `ProductoConcreto` hereda de la clase abstracta `Producto` (abstracción del patrón Bridge).
+
+- **Polimorfismo**:
+
+- Se aplica al trabajar con la interfaz `ProductoImplementacion` y su uso en las diferentes implementaciones (`CamaraImplementacion`, `FotoImplementacion`, `ImpresionImplementacion`).
 
 ## 2. Composición y Agregación
 
 - **Composición**:
+
   - La clase `Pedido` contiene una lista de objetos `Producto` y un objeto `Cliente`, indicando que un pedido está compuesto por productos y un cliente.
+
   - La clase `ImpresionImplementacion` contiene una lista de objetos `Foto`, representando que una impresión está compuesta por varias fotos.
 
 - **Agregación**:
+
   - Se utiliza en la relación entre `Pedido` y `Producto`, ya que los productos pueden existir independientemente de los pedidos.
 
 ## 3. ¿Cuál clase podría convertirse en una interfaz o clase abstracta para generar un modelo mucho más estructurado?

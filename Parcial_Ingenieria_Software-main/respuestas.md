@@ -2,30 +2,34 @@
 
 ## 1. Herencia y Polimorfismo
 
-- **Herencia**:
+### **Herencia**
+- `ProductoConcreto` hereda de la clase abstracta `Producto`.
 
-- La clase Camara e Impresion implementan la interfaz Producto. Esto es un ejemplo de herencia por implementación (una clase concreta implementa una interfaz).
+```java
+public class ProductoConcreto extends Producto { ... }
+```
 
-- Esto permite que se puedan tratar diferentes clases (Camara, Impresion) como si fueran del mismo tipo (Producto).
+### **Polimorfismo**
+- Se aplica a través de la interfaz `ProductoImplementacion`.
+  - `CamaraImplementacion` e `ImpresionImplementacion` implementan esta interfaz.
+  - Se puede utilizar cualquier implementación como un `Producto` de forma polimórfica:
 
-- **Polimorfismo**:
+```java
+Producto producto = new ProductoConcreto(new CamaraImplementacion(...));
+```
 
-- En el método mostrarPedido() de la clase Pedido, se recorre una lista de objetos Producto y se llama a mostrarDetalles() sin saber si se trata de una Camara o una Impresion.
+---
 
+## 2. ⚙️ Composición y Agregación
 
-## 2. Composición y Agregación
+### **Composición**
+- `Producto` tiene una implementación (`ProductoImplementacion`), que es parte fundamental de él.
+- `Pedido` tiene una lista de productos (`ArrayList<Producto>`) que se consideran parte del pedido.
 
-- **Composición**:
+### **Agregación**
+- `Pedido` tiene un `Cliente`, pero el cliente puede existir sin el pedido y puede ser compartido entre varios pedidos.
 
-- La clase Pedido contiene una lista de Producto y también contiene directamente la instancia de Cliente.
-
-- Como el pedido no tiene sentido sin sus productos, esta relación se considera composición.
-
-- **Agregación**:
-
-- En el caso de las Fotos dentro de una Impresion, también se podría considerar composición, porque las fotos están contenidas dentro de la impresión y no se reutilizan.
-
-- Si en algún momento las Fotos se reutilizan en otras impresiones, entonces se puede reinterpretar como agregación.
+---
 
 
 

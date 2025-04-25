@@ -4,23 +4,30 @@
 
 - **Herencia**:
 
-- La clase `ProductoConcreto` hereda de la clase abstracta `Producto` (abstracción del patrón Bridge).
+- La clase Camara e Impresion implementan la interfaz Producto. Esto es un ejemplo de herencia por implementación (una clase concreta implementa una interfaz).
+
+- Esto permite que se puedan tratar diferentes clases (Camara, Impresion) como si fueran del mismo tipo (Producto).
 
 - **Polimorfismo**:
 
-- Se aplica al trabajar con la interfaz `ProductoImplementacion` y su uso en las diferentes implementaciones (`CamaraImplementacion`, `FotoImplementacion`, `ImpresionImplementacion`).
+- En el método mostrarPedido() de la clase Pedido, se recorre una lista de objetos Producto y se llama a mostrarDetalles() sin saber si se trata de una Camara o una Impresion.
+
 
 ## 2. Composición y Agregación
 
 - **Composición**:
 
-  - La clase `Pedido` contiene una lista de objetos `Producto` y un objeto `Cliente`, indicando que un pedido está compuesto por productos y un cliente.
+- La clase Pedido contiene una lista de Producto y también contiene directamente la instancia de Cliente.
 
-  - La clase `ImpresionImplementacion` contiene una lista de objetos `Foto`, representando que una impresión está compuesta por varias fotos.
+- Como el pedido no tiene sentido sin sus productos, esta relación se considera composición.
 
 - **Agregación**:
 
-  - Se utiliza en la relación entre `Pedido` y `Producto`, ya que los productos pueden existir independientemente de los pedidos.
+- En el caso de las Fotos dentro de una Impresion, también se podría considerar composición, porque las fotos están contenidas dentro de la impresión y no se reutilizan.
+
+- Si en algún momento las Fotos se reutilizan en otras impresiones, entonces se puede reinterpretar como agregación.
+
+
 
 ## 3. ¿Cuál clase podría convertirse en una interfaz o clase abstracta para generar un modelo mucho más estructurado?
 
